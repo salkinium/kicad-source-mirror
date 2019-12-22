@@ -666,6 +666,10 @@ void PCB_EDIT_FRAME::SetActiveLayer( PCB_LAYER_ID aLayer )
 
 void PCB_EDIT_FRAME::onBoardLoaded()
 {
+    wxFileName fn = GetBoard()->GetFileName();
+    fn.SetExt("wrl");
+    ExportVRML_File(fn.GetFullPath(), 1, false, false, false, wxT(""), 0, 0);
+
     UpdateTitle();
 
     // Re-create layers manager based on layer info in board

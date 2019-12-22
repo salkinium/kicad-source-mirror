@@ -226,19 +226,19 @@ bool PGM_BASE::InitPgm()
 
     wxInitAllImageHandlers();
 
-    m_pgm_checker = new wxSingleInstanceChecker( pgm_name.GetName().Lower() + wxT( "-" ) +
-                                                 wxGetUserId(), GetKicadLockFilePath() );
+    // m_pgm_checker = new wxSingleInstanceChecker( pgm_name.GetName().Lower() + wxT( "-" ) +
+    //                                              wxGetUserId(), GetKicadLockFilePath() );
 
-    if( m_pgm_checker->IsAnotherRunning() )
-    {
-        wxString quiz = wxString::Format(
-            _( "%s is already running. Continue?" ),
-            GetChars( pgm_name.GetName() )
-            );
+    // if( m_pgm_checker->IsAnotherRunning() )
+    // {
+    //     wxString quiz = wxString::Format(
+    //         _( "%s is already running. Continue?" ),
+    //         GetChars( pgm_name.GetName() )
+    //         );
 
-        if( !IsOK( NULL, quiz ) )
-            return false;
-    }
+    //     if( !IsOK( NULL, quiz ) )
+    //         return false;
+    // }
 
     // Init KiCad environment
     // the environment variable KICAD (if exists) gives the kicad path:
@@ -254,7 +254,7 @@ bool PGM_BASE::InitPgm()
     }
 
     // Init parameters for configuration
-    App().SetVendorName( "KiCad" );
+    App().SetVendorName( "KiCad2" );
     App().SetAppName( pgm_name.GetName().Lower() );
 
     // Install some image handlers, mainly for help
